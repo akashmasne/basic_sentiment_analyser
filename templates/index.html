@@ -28,8 +28,8 @@
 								<p1>
 								 <label>Select here or type custom text below </label>
 								 <select name = "userinput">
-								   <option value = "I loved it">I loved it</option>
-								   <option value = "I hate it">I hate it</option>
+								   <option value = "The flight was comfortable. Thank you!">The flight was comfortable. Thank you!</option>
+								   <option value = "The long journey crushed me">The long journey crushed me</option>
 								   <option value = "I don't care">I don't care</option>
 								 </select>
 								</p1>
@@ -40,20 +40,17 @@
 						</div>
 					</div>
 				<p1>You entered : {{ yourtext }}</p1>
-
+				</br>
 				<p1>Sentiment detected : </p1>
-				{% if prediction==1 %}
-					<h2 style="color:green;">Positive</h2>
-				{% elif prediction == 0%}
-					<h2 style="color:blue;">Neutral</h2>
-				{% elif prediction == -1%}
-					<h2 style="color:red;">Negative</h2>
+				{% if prediction==1 %}		<h2 style="color:green;">Positive</h2>
+				{% elif prediction == 0%}	<h2 style="color:blue;">Neutral</h2>
+				{% elif prediction == -1%}	<h2 style="color:red;">Negative</h2>
 				{% endif %}
 				</br>
 				</br>
 
 
-						<p1>Check source code <a href="https://github.com/akashmasne/SpamClassifier"><u>here</u></a></p1>
+						<p1>Check source code <a href="https://github.com/akashmasne/basic_sentiment_analyser"><u>here</u></a></p1>
 				</form><!-- end of form -->
 			</div><!-- end of container -->
 		</section><!-- end of section -->
