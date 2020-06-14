@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Sentiment Analyser</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/vendors/themify-icons/css/themify-icons.css") }}" />
+    <!-- Bootstrap + Meyawo main styles -->
+	<link rel="stylesheet" href="{{ url_for('static', filename="assets/css/meyawo.css") }}" />
+	
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="10" id="home">
+
+	<div class="container text-center" style="background-image: url('static/assets/imgs/p1.jpg')"> 
+	</br>
+		<h2><b>Try out Sentiment Analyser</b></h2>
+		<section class="section"  id="contact">
+
+			<div class="container" align="left">
+
+				<!-- contact form -->
+				<form action="analyse" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
+					<div class="form-row">
+						<div class="form-group col-sm-12">
+								<p1>
+								 <label>Select here or type custom text below </label>
+								 <select name = "userinput">
+								   <option value = "I loved it">I loved it</option>
+								   <option value = "I hate it">I hate it</option>
+								   <option value = "I don't care">I don't care</option>
+								 </select>
+								</p1>
+							<textarea name="customText" id="comment" rows="3"  class="form-control" placeholder="customText"></textarea>
+						</div>
+						<div class="form-group col-sm-12 mt-3" align="center">
+							<input type="submit" value="Analyse" class="btn btn-outline-primary rounded">                  
+						</div>
+					</div>
+				<p1>You entered : {{ yourtext }}</p1>
+
+				<p1>Sentiment detected : </p1>
+				{% if prediction==1 %}
+					<h2 style="color:green;">Positive</h2>
+				{% elif prediction == 0%}
+					<h2 style="color:blue;">Neutral</h2>
+				{% elif prediction == -1%}
+					<h2 style="color:red;">Negative</h2>
+				{% endif %}
+				</br>
+				</br>
+
+
+						<p1>Check source code <a href="https://github.com/akashmasne/SpamClassifier"><u>here</u></a></p1>
+				</form><!-- end of form -->
+			</div><!-- end of container -->
+		</section><!-- end of section -->
+	</div>
+	
+	
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">       
+            <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="https://github.com/akashmasne" class="link"><i class="ti-github"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+	
+	<!-- core  -->
+    <script src="{{ url_for('static', filename="assets/vendors/jquery/jquery-3.4.1.js") }}"></script>
+	
+	<script src="{{ url_for('static', filename="assets/vendors/bootstrap/bootstrap.bundle.js") }}"></script>
+
+	<script src="{{ url_for('static', filename="assets/vendors/bootstrap/bootstrap.affix.js") }}"></script>
+
+    <!-- Meyawo js -->
+    <script src="{{ url_for('static', filename="assets/js/meyawo.js") }}"></script>
+
+</body>
+</html>
